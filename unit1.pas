@@ -34,7 +34,7 @@ var
  Form1: TForm1;
 
 const
- e = 1;
+ e = 0.001;
 
 implementation
 
@@ -78,7 +78,7 @@ begin
        y := c;
      Chart1LineSeries1.AddXY(c, f(c), '');
    until abs(f(c)) < e;
-   memo1.Lines.Add(inttostr(c));
+   memo1.Lines.Add(floattostr(c));
   end;
 end;
 
@@ -92,6 +92,7 @@ var
  s: string;
  code: byte;
  a, b, x: real;
+ shag: integer;
 begin
  s := InputBox('Введите a', 'Ввод a', '');
  val(s, a, code);
@@ -119,7 +120,7 @@ begin
             exit;
         end;
   until abs( f(x) ) < e;
-  memo1.Lines.Add(inttostr(x));
+  memo1.Lines.Add(floattostr(x));
 end;
 
 end.
