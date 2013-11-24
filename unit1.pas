@@ -1,4 +1,4 @@
-unit Unit1;
+﻿unit Unit1;
 
 {$mode objfpc}{$H+}
 
@@ -34,7 +34,7 @@ var
  Form1: TForm1;
 
 const
- e = 0.001;
+ e = 1;
 
 implementation
 
@@ -43,7 +43,7 @@ implementation
 { TForm1 }
 function f(x: real): real;
 begin
- f := sqr(x) - exp(x) - 2;
+ f := sqrt(y) - exp(x) - 2;
 end;
 
 procedure TForm1.Button1Click(Sender: TObject);
@@ -78,7 +78,7 @@ begin
        y := c;
      Chart1LineSeries1.AddXY(c, f(c), '');
    until abs(f(c)) < e;
-   memo1.Lines.Add(floattostr(c));
+   memo1.Lines.Add(inttostr(c));
   end;
 end;
 
@@ -91,7 +91,6 @@ procedure TForm1.Button3Click(Sender: TObject);
 var
  s: string;
  code: byte;
- shag: integer;
  a, b, x: real;
 begin
  s := InputBox('Введите a', 'Ввод a', '');
@@ -120,7 +119,7 @@ begin
             exit;
         end;
   until abs( f(x) ) < e;
-  memo1.Lines.Add(floattostr(x));
+  memo1.Lines.Add(inttostr(x));
 end;
 
 end.
